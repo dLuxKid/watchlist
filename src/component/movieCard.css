@@ -1,0 +1,61 @@
+.cardContainer {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  position: relative;
+  background: lightcyan;
+  border-radius: 20px;
+  transition: 0.3s all ease-in-out;
+}
+
+.cardContainer:hover {
+  scale: 1.05;
+}
+
+.movieImg {
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.movieImg img {
+  border-radius: 10px;
+  width: 200px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.movieDetails {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.addToWatchList button {
+  padding: 10px 21px;
+  outline: 0;
+  border: 0;
+  border-radius: 10px;
+  background: aqua;
+  color: aliceblue;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 660px) {
+  .cardContainer {
+    flex-direction: column;
+  }
+
+  .movieDetails {
+    gap:1rem;
+  }
+
+  .movieImg img {
+    width: 100%;
+  }
+}

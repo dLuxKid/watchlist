@@ -1,0 +1,31 @@
+nav {
+  background: aqua;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  padding: 2rem 5%;
+}
+
+.navContainer {
+  color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navContainer h1 {
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.navContainer p {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
