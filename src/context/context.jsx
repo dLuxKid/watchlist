@@ -7,17 +7,19 @@ export const ContextProvider = ({ children }) => {
   const [count, setCount] = useState(0);
   const [showWatchList, setShowWatchList] = useState(false);
 
-  const addToWatchList = (movie) => {
-    if (watchListRef.current.indexOf(movie.id) === -1) {
-      watchListRef.current.push(movie);
-      console.log(watchListRef.current);
+  const addToWatchList = (newMovie) => {
+    if (watchListRef.current.findIndex(movie => movie.id === newMovie.id) === -1) {
+      watchListRef.current.push(newMovie);
       setCount((count) => (count += 1));
     }
     return watchListRef;
   };
 
   const removeFromWatchList = (id) => {
-    watchListRef.current.filter((movie) => movie.id !== id);
+    watchListRef.current = watchListRef.current.filter((movie) => movie.id !== id);
+    console.log(watchListRef);
+    setCount((count) => (count -= 1));
+    return watchListRef
   };
 
   return (

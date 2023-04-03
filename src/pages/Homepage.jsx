@@ -17,7 +17,6 @@ const Homepage = () => {
         `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US`
       );
       setMovies(res.data.results);
-      console.log(res.data.results);
     };
     fetchData();
   }, []);
