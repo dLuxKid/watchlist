@@ -19,8 +19,8 @@
 
 .movieImg {
   display: flex;
-justify-content: center;
-align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .movieImg img {
@@ -33,10 +33,10 @@ align-items: center;
 .movieDetails {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 1rem;
 }
 
-.addToWatchList button {
+.watchListBtn button {
   padding: 10px 21px;
   outline: 0;
   border: 0;
@@ -50,12 +50,10 @@ align-items: center;
   .cardContainer {
     flex-direction: column;
   }
-
-  .movieDetails {
-    gap:1rem;
-  }
-
+  
   .movieImg img {
     width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }

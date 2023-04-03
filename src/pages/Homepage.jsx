@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Homepage.css";
 import CardListContainer from "../component/CardListContainer";
 import instance from "../apis/axios";
 import { api_key } from "../apis/axios";
+import { watchListContext } from "../context/context";
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
   const [searchfield, setSearchfield] = useState("");
+
+  const { watchListRef, showWatchList } = watchListContext();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,13 +17,22 @@ const Homepage = () => {
         `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US`
       );
       setMovies(res.data.results);
+      console.log(res.data.results);
     };
     fetchData();
-  }, [movies]);
+  }, []);
 
   const filteredMovies = movies.filter((movie) =>
     movie.title.toLowerCase().includes(searchfield.toLowerCase())
   );
+
+  if (!movies) {
+    return (
+      <div className="loading">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <section className="homepage">
@@ -31,7 +43,11 @@ const Homepage = () => {
           onChange={(e) => setSearchfield(e.target.value)}
         />
       </div>
-      {filteredMovies && <CardListContainer movies={filteredMovies} />}
+      {movies && (
+        <CardListContainer
+          movies={showWatchList ? watchListRef.current : filteredMovies}
+        />
+      )}
     </section>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import MovieCard from './MovieCard'
+import MovieCard from "./movieCard";
 import "./cardList.css";
 
 const CardListContainer = ({ movies }) => {
@@ -8,6 +8,7 @@ const CardListContainer = ({ movies }) => {
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}
+          id = {movie.id}
           title={movie.title}
           src={movie?.backdrop_path}
           overview={movie.overview}

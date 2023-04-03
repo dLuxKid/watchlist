@@ -1,15 +1,19 @@
-import React from 'react'
-import './Header.css'
+import React from "react";
+import "./Header.css";
+import { watchListContext } from "../context/context";
 
 const Header = () => {
-    return (
-        <nav>
-            <div className='navContainer'>
-                <h1>Watchthis</h1>
-                <p>watch list</p>
-            </div>
-        </nav>
-    )
-}
+  const { count, setShowWatchList } = watchListContext();
+  return (
+    <nav>
+      <div className="navContainer">
+        <h1 onClick={() => setShowWatchList(false)}>Watchthis</h1>
+        <p onClick={() => setShowWatchList(true)}>
+          watch list <span>{count}</span>
+        </p>
+      </div>
+    </nav>
+  );
+};
 
-export default Header
+export default Header;

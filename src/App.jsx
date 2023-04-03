@@ -1,11 +1,12 @@
-
-import Layout from './Layout/Layout'
+import { ContextProvider } from "./context/context";
+import Layout from "./Layout/Layout";
 
 function App() {
-
   return (
-    <Layout />
-  )
+    <ContextProvider>
+      <Layout />
+    </ContextProvider>
+  );
 }
 
-export default App
+export default App;
